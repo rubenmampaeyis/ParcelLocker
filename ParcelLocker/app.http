@@ -1,0 +1,18 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+GET https://localhost:7135/api/parcel
+
+###
+
+POST https://localhost:7135/api/parcel
+Content-Type: application/json
+
+{
+    "weightGrams": 30,
+    "destination": {
+      "street": "D",
+      "houseNumber": "B",
+      "city": "A",
+      "postalCode": "C"
+    }
+  }
