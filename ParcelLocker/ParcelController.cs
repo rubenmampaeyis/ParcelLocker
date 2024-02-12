@@ -9,9 +9,9 @@ namespace ParcelLocker
     public class ParcelController : ControllerBase
     {
         private readonly ParcelService _parcelService;
-        private readonly ParcelStore _parcelStore;
+        private readonly IParcelStore _parcelStore;
 
-        public ParcelController(ParcelService parcelService, ParcelStore parcelStore)
+        public ParcelController(ParcelService parcelService, IParcelStore parcelStore)
         {
              _parcelService = parcelService;
             _parcelStore = parcelStore;

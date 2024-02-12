@@ -13,9 +13,8 @@ namespace ParcelLocker.Services
             optionsBuilder.UseInMemoryDatabase(databaseName: "ParcelStore");
         }
     }
-    public class ParcelStore(ParcelContext _dbContext)
+    public class ParcelStore(ParcelContext _dbContext) : IParcelStore
     {
-
         public async Task SaveData(Parcel data)
         {
             _dbContext.Parcels.Add(data);

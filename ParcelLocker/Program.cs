@@ -16,8 +16,8 @@ namespace ParcelLocker
             builder.Services.AddEndpointsApiExplorer();
 
             builder.Services.AddScoped<ParcelService>();
-            builder.Services.AddSingleton<FileStore>();
-            builder.Services.AddScoped<ParcelStore>();
+            builder.Services.AddScoped<IParcelStore, ParcelStore>();
+            //builder.Services.AddScoped<IParcelStore, FileStore>();
             builder.Services.AddDbContext<ParcelContext>();
             var app = builder.Build();
 

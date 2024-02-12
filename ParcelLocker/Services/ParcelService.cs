@@ -5,9 +5,9 @@ namespace ParcelLocker.Services
 {
     public class ParcelService
     {
-        private ParcelStore _parcelStore;
+        private IParcelStore _parcelStore;
 
-        public ParcelService(ParcelStore parcelStore)
+        public ParcelService(IParcelStore parcelStore)
         {
             _parcelStore = parcelStore;
         }

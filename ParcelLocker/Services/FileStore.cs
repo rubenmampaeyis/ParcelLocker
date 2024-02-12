@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace ParcelLocker.Services
 {
-    public class FileStore
+    public class FileStore: IParcelStore
     {
         private readonly string _filePath;
 

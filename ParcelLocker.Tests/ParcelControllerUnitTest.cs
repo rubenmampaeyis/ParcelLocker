@@ -11,7 +11,7 @@ namespace ParcelLocker.Tests
         private readonly ParcelController _controller;
         public ParcelControllerUnitTest()
         {
-            var fileStoreMock = new Mock<FileStore>();
+            var fileStoreMock = new Mock<IParcelStore>();
             var parcelService = new ParcelService(fileStoreMock.Object);
             _controller = new ParcelController(parcelService, fileStoreMock.Object);
         }
