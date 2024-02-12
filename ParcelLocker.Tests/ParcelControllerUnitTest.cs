@@ -6,10 +6,10 @@ using ParcelLocker.Services;
 namespace ParcelLocker.Tests
 {
     [TestClass]
-    public class ParcelControllerTest
+    public class ParcelControllerUnitTest
     {
         private readonly ParcelController _controller;
-        public ParcelControllerTest()
+        public ParcelControllerUnitTest()
         {
             var fileStoreMock = new Mock<FileStore>();
             var parcelService = new ParcelService(fileStoreMock.Object);

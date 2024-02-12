@@ -1,16 +1,29 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using ParcelLocker.Services;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace ParcelLocker
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddControllers();
+            builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSingleton<ParcelService>();
-builder.Services.AddSingleton<FileStore>();
+            builder.Services.AddSingleton<ParcelService>();
+            builder.Services.AddSingleton<FileStore>();
 
-var app = builder.Build();
+            var app = builder.Build();
 
-app.UseHttpsRedirection();
-app.MapControllers();
+            app.UseHttpsRedirection();
+            app.MapControllers();
 
-app.Run();
+            app.Run();
+        }
+    }
+}
