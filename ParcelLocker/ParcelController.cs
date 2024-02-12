@@ -9,17 +9,17 @@ namespace ParcelLocker
     public class ParcelController : ControllerBase
     {
         private readonly ParcelService _parcelService;
-        private readonly FileStore _fileStore;
+        private readonly ParcelStore _parcelStore;
 
-        public ParcelController(ParcelService parcelService, FileStore fileStore)
+        public ParcelController(ParcelService parcelService, ParcelStore parcelStore)
         {
              _parcelService = parcelService;
-            _fileStore = fileStore;
+            _parcelStore = parcelStore;
         }
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _fileStore.GetData());
+            return Ok(await _parcelStore.GetData());
         }
 
         [HttpPost]

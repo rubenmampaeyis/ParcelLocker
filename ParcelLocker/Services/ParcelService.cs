@@ -5,11 +5,11 @@ namespace ParcelLocker.Services
 {
     public class ParcelService
     {
-        private FileStore _fileStore;
+        private ParcelStore _parcelStore;
 
-        public ParcelService(FileStore fileStore)
+        public ParcelService(ParcelStore parcelStore)
         {
-            _fileStore = fileStore;
+            _parcelStore = parcelStore;
         }
         public async Task<Parcel> Add(AddParcelDTO parcelDto)
         {
@@ -20,7 +20,8 @@ namespace ParcelLocker.Services
                 ShippingCostCents = CalculateShipping(parcelDto.WeightGrams),
                 ID = Guid.NewGuid()
             };
-            await _fileStore.SaveData(parcel);
+            parcelDto.Destination.Id = Guid.NewGuid();
+            await _parcelStore.SaveData(parcel);
             return parcel;
         }
         private int CalculateShipping(int weightGrams) {
